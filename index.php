@@ -50,7 +50,7 @@
         if ($vote > 0 && $vote <= 5) {
             $visible_hotels = array_filter($hotels, fn($hotel) => $hotel['vote'] <= $vote);
         } else $vote = 'not valid';
-    };
+    } else $vote = 'Filtro non valido';
 
     ?>
 <!DOCTYPE html>
@@ -80,12 +80,12 @@
             </div>
             <div class="col-4">
                 <h1>Filtri Attivi</h1>
-                <p> Parcheggio
+                <p> Parcheggio:
                     <?php if ($parking == 'on') {
                         echo $parking;
                     } else echo 'off'; ?>
                 </p>
-                <p> Voto
+                <p> Voto:
                     <?php  echo $vote; ?>
                 </p>
             </div>
